@@ -1,0 +1,31 @@
+.register {
+    .title {
+        font-family: 'Baloo';
+        font-size: 21px;
+    }
+   
+    .form_container {
+        font-family: 'Montserrat';
+        .form_item {
+            margin: 0 0 10px 0 !important;
+            div[class$="ant-form-item-label"] {
+                line-height: 10px !important;
+            }
+        }
+
+        .form_label {
+            font-size: 13px;
+            font-weight: 600;
+            color: rgba(112, 112, 112, 1);
+            div[class^="ant-form-item-label"], div[class^="ant-form-item-control-wrapper"]  {
+                max-height: 27px;
+            }
+            
+        }
+
+    }
+
+    .tc { text-align: center; }
+    .tl { text-align: left; }
+    .tr { text-align: right; }
+}

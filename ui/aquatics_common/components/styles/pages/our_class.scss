@@ -1,0 +1,113 @@
+.our_brand {
+    position: relative;
+    font-family: 'Montserrat';
+    font-size: 14px;
+
+    p {
+        font-size: 14px;
+    }
+
+    .overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,.5);
+        top: 0;
+        .text {
+            margin: auto;
+            color: #FFF;
+            font-size: 3em;
+            font-weight: bold;
+            width: fit-content;
+            line-height: 300px;
+            font-family: 'Baloo';
+            @include mobile-lg {
+                line-height: 170px;
+            }
+            @include mobile-xs {
+                line-height: 170px;
+            }
+        }
+    }
+    img {
+        height: 300px;
+        width: 100%;
+
+        @include mobile-lg {
+            height: 170px;
+        }
+        @include mobile-xs {
+            height: 170px;
+        }
+    }
+}
+
+.our_wrapper {
+    position: relative;
+    margin-top: 30px;
+
+    &.first {
+        margin-top: 55px;
+    }
+
+    h2 {
+        font-family: 'Baloo';
+    }
+
+    ul {
+        margin-bottom: 0;
+        li {
+            font-size: 14px;
+            font-family: 'Montserrat';
+            font-weight: 500;
+            padding: 5px 0;
+            color: #3E3E3E;
+            &.unsymblo {
+                list-style: none;
+            }
+            .title {
+                font-size: 14px;
+                font-weight: bold;
+            }
+            .text {
+                padding-left: 15px;
+            }
+            .pre_title { font-weight: bold; }
+        }
+    }
+
+}
+
+#tabs {
+    li {
+        .item {
+            font-size: 1em;
+            color: #B4AEAE;
+            &[class$="active"] {
+                font-weight: bold;
+                color: #495057;
+                background-color: rgba(247, 247, 247, 1);
+                border-color: #4e95e8 !important;
+                border-bottom: 3px solid #dee2e6;
+                border-top: 0;
+                border-left: 0;
+                border-right: 0;
+            }
+        }
+        
+    }
+}
+
+#tabsContent {
+    font-size: 14px;
+    font-family: 'Montserrat';
+    .body {
+        padding: 10px 0;
+        .title {
+            font-weight: bold;
+        }
+        .text {
+            padding-left: 20px;
+        }
+    }
+}

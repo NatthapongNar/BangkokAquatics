@@ -1,0 +1,127 @@
+@import '../common/media-queries.scss';
+
+.banner {
+    width: 100%;
+
+    .carousel_wrapper {
+        max-height: 500px;
+        overflow: hidden;
+  
+        @include tablet {
+            height: 350px;
+        }
+        @include mobile-lg {
+            height: 200px;
+        }
+        @include mobile-xs {
+            height: 200px;
+        }
+
+        #carouselCaptions {
+            position: relative;        
+        }
+
+        .ovelay {
+            position: absolute;
+            height: 60%;
+            text-align: center;
+            width: 100%;
+            bottom: 0;
+            font-family: 'Baloo';
+            color: #FFF;
+            font-size: 21px;
+            background: transparent linear-gradient(0deg, rgba(5, 5, 5, 1) 0%, rgba(46, 46, 46, 0.62) 43%, rgba(255, 255, 255, 0) 100%) 0% 0% no-repeat padding-box;
+
+            @include mobile-lg {
+                font-size: 14px;
+            }
+            @include mobile-xs {
+                font-size: 14px;
+            }
+
+            .container {
+                position: relative;
+                height: 100%;
+
+                .inner {
+                    position: absolute;
+                    width: 100%;
+                    bottom: 35px;
+                }
+
+                .rows {
+                    width: 100%;
+                    text-align: center;
+                    .item {
+                        width: 500px;
+                        margin: 0 auto;
+                        @include mobile-lg {
+                            width: 450px;
+                        }
+                        @include mobile-xs {
+                            width: 450px;
+                        }
+            
+                    }
+                }
+
+            }
+
+            .register {
+                width: 120px;
+                margin: 0 auto;
+                padding: 7px;
+                margin-bottom: 10px;
+                color: #FFF;
+                font-size: 18px;
+                background: rgba(77, 149, 232, 1);
+                border-radius: 11px;
+                cursor: pointer;
+                font-family: 'Montserrat';
+                
+                &:hover {
+                    background: #4d95e8;
+                }
+            }
+            
+        }
+
+        .carousel_list {
+            .carousel_list_item {
+                max-height: 500px;
+                img { 
+                    width: 100%; 
+                    max-height: 500px;
+                }
+
+                @include desktop {
+                    max-height: 500px;
+                    img { 
+                        min-height: 500px;
+                    }
+                }
+                @include tablet {
+                    max-height: 350px;
+                    img { 
+                        min-height: 350px;
+                    }
+                }
+                @include mobile-lg {
+                    max-height: 200px;
+                    img { 
+                        min-height: 200px;
+                    }
+                }
+                @include mobile-xs {
+                    max-height: 200px;
+                    img { 
+                        min-height: 200px;
+                    }
+                }
+                
+            }
+        }
+
+    }
+    
+}

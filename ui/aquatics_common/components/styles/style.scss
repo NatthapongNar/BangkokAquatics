@@ -1,0 +1,52 @@
+/* Common */
+@import './common/common.scss';
+@import './common/media-queries.scss';
+
+/* Component */
+@import './component/navigation.scss';
+@import './component/footer.scss';
+
+/* Pages */
+@import './pages/home.scss';
+@import './pages/our_class.scss';
+@import './pages/gallery.scss';
+
+.bangkok_aquatic_wrapper {
+    font-family: 'Montserrat';
+    font-size: 14px;
+    color: #3E3E3E;
+
+    .aquatic_content {
+        margin-top: 80px;
+    }
+
+    @include mobile-lg {
+        .aquatic_content {
+            margin-top: 80px;
+        }
+    }
+    @include mobile-xs {
+        .aquatic_content {
+            margin-top: 80px;
+        }
+    }
+
+    .text-vw-port {
+        display: none;
+    }
+
+    @include desktop {
+        .text-vw-port {
+            display: unset;
+        }
+    }
+    @include mobile-xs {
+        .text-vw-port {
+            display: unset;
+        }
+    }
+
+    .bold { font-weight: bold; }
+    .note { font-weight: bold; }
+}
+
