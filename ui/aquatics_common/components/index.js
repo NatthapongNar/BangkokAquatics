@@ -4,15 +4,14 @@ import { BackTop } from 'antd'
 import styles from './styles/style.scss'
 
 // COMPONENTS
-import Navigation from './navigation'
-import Footer from './footer'
+import Navigation from './common/navigation'
+import Footer from './common/footer'
 
 // PAGES
 import Home from './pages/home'
 import ClassRoom from './pages/class_room'
 import Gallery from './pages/gallery'
 import OurCoaches from './pages/our_coaches'
-
 
 class AquaticsTemplate extends Component {
 

@@ -2,6 +2,7 @@
 	"name": "bangkok_aquatics",
 	"version": "1.0.0",
 	"description": "bangkok aquatics v1.0.0",
+	"homepage": "http://amazoninfo24.com/aquatics",
 	"main": "index.js",
 	"scripts": {
 		"aquatics": "webpack-dev-server --config ui/webpack/webpack.config.js",

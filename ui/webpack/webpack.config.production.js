@@ -7,7 +7,7 @@ const extractSass = new ExtractTextPlugin('./css/aquatics.min.css')
 module.exports = {
     devtool: 'cheap-module-source-map',
     entry: {
-        index: './ui/aquatic_common/index.js',
+        index: './ui/aquatics_common/index.js',
         vendors: [
 			'react',
             'react-dom',

@@ -7,6 +7,7 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  *
  * @providesModule editOnBeforeInput
+ * @format
  * 
  */
 
@@ -30,8 +31,8 @@ var setImmediate = require('fbjs/lib/setImmediate');
 // This breaks the input. Special case these characters to ensure that when
 // they are typed, we prevent default on the event to make sure not to
 // trigger quickfind.
-var FF_QUICKFIND_CHAR = '\'';
-var FF_QUICKFIND_LINK_CHAR = '\/';
+var FF_QUICKFIND_CHAR = "'";
+var FF_QUICKFIND_LINK_CHAR = '/';
 var isFirefox = UserAgent.isBrowser('Firefox');
 
 function mustPreventDefaultForCharacter(character) {
@@ -86,11 +87,24 @@ function editOnBeforeInput(editor, e) {
   // reduces re-renders and preserves spellcheck highlighting. If the selection
   // is not collapsed, we will re-render.
   var selection = editorState.getSelection();
+  var selectionStart = selection.getStartOffset();
+  var selectionEnd = selection.getEndOffset();
   var anchorKey = selection.getAnchorKey();
 
   if (!selection.isCollapsed()) {
     e.preventDefault();
-    editor.update(replaceText(editorState, chars, editorState.getCurrentInlineStyle(), getEntityKeyForSelection(editorState.getCurrentContent(), editorState.getSelection())));
+
+    // If the currently selected text matches what the user is trying to
+    // replace it with, let's just update the `SelectionState`. If not, update
+    // the `ContentState` with the new text.
+    var currentlySelectedChars = editorState.getCurrentContent().getPlainText().slice(selectionStart, selectionEnd);
+    if (chars === currentlySelectedChars) {
+      editor.update(EditorState.forceSelection(editorState, selection.merge({
+        focusOffset: selectionEnd
+      })));
+    } else {
+      editor.update(replaceText(editorState, chars, editorState.getCurrentInlineStyle(), getEntityKeyForSelection(editorState.getCurrentContent(), editorState.getSelection())));
+    }
     return;
   }
 
@@ -109,7 +123,7 @@ function editOnBeforeInput(editor, e) {
     // https://chromium.googlesource.com/chromium/src/+/013ac5eaf3%5E%21/
     var nativeSelection = global.getSelection();
     // Selection is necessarily collapsed at this point due to earlier check.
-    if (nativeSelection.anchorNode !== null && nativeSelection.anchorNode.nodeType === Node.TEXT_NODE) {
+    if (nativeSelection.anchorNode && nativeSelection.anchorNode.nodeType === Node.TEXT_NODE) {
       // See isTabHTMLSpanElement in chromium EditingUtilities.cpp.
       var parentNode = nativeSelection.anchorNode.parentNode;
       mustPreventNative = parentNode.nodeName === 'SPAN' && parentNode.firstChild.nodeType === Node.TEXT_NODE && parentNode.firstChild.nodeValue.indexOf('\t') !== -1;
