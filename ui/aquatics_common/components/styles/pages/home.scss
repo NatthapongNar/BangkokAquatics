@@ -1,5 +1,3 @@
-
-
 .aquatic_wrapper {
     height: 100%;
     position: relative;
@@ -453,6 +451,10 @@
     .contact_channel {
         display: grid;
         grid-template-columns: repeat(3, 33.33%);
+
+        @include mobile {
+            display: block;
+        }
 
         .contact_item {
             color: #FFF;

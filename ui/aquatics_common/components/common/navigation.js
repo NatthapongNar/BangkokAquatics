@@ -18,6 +18,10 @@ class Navigation extends Component {
                 nav_bar.removeClass(styles['small'])
             }
         })
+
+        $('.navbar-nav > li > a').on('click', () => {
+            $('.navbar-collapse').collapse('hide')
+        })
     }
 
     render() {
@@ -47,7 +51,7 @@ class Navigation extends Component {
                                     let active_menu = (activeMenu == menuName) ? styles['active'] : ''
                                     return (
                                         <li key={`menuItem_${(i+1)}`} className={`nav-item ${styles['menu_item']} ${active_menu}`} onClick={handleChangePage.bind(this, `${menuName}`)}>
-                                            <a className={`nav-link ${styles['menu_link']}`}>{menuName}</a>
+                                            <a className={`nav-link ${styles['menu_link']}`} data-toggle="collapse">{menuName}</a>
                                         </li>
                                     )
                                 })
