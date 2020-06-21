@@ -27,9 +27,11 @@ class Footer extends Component {
                                                 <div><img src={phone} className={styles['icon']} /></div>
                                                 <div className={styles['text']}>Call</div>
                                             </div>
-                                            <div className={styles['contact_item']}>
+                                            <div className={styles['contact_item']}>                                        
                                                 <div>&nbsp;</div>
-                                                <div className={styles['text']}>095 527 0999</div>
+                                                <div className={styles['text']}>
+                                                    <a href="tel:0955270999">095 527 0999</a>
+                                                </div>
                                             </div>
                                         </li>
                                         <li className={styles['contact_line']}>
@@ -39,18 +41,22 @@ class Footer extends Component {
                                             </div>
                                             <div className={styles['contact_item']}>
                                                 <div>&nbsp;</div>
-                                                <div className={styles['text']}>mijitra@gmail.com</div>
-                                            </div>
+                                                <div className={styles['text']}>
+                                                    <a href="mailto:mijitra@gmail.com">mijitra@gmail.com</a>
+                                                </div>
+                                            </div>                                        
                                         </li>
                                         <li className={styles['contact_line']}>
-                                            <div className={styles['contact_item']}>
-                                                <div><img src={line} className={styles['icon']} /></div>
-                                                <div className={styles['text']}>Line</div>
-                                            </div>
-                                            <div className={styles['contact_item']}>
-                                                <div>&nbsp;</div>
-                                                <div className={styles['text']}>bangkok-aquatics</div>
-                                            </div>
+                                            <a href="http://line.me/ti/p/~bangkok-aquatics">
+                                                <div className={styles['contact_item']}>
+                                                    <div><img src={line} className={styles['icon']} /></div>
+                                                    <div className={styles['text']}>Line</div>
+                                                </div>
+                                                <div className={styles['contact_item']}>
+                                                    <div>&nbsp;</div>
+                                                    <div className={styles['text']}>bangkok-aquatics</div>
+                                                </div>
+                                            </a>
                                         </li>
                                     </ul>
                                 </div>
@@ -61,8 +67,11 @@ class Footer extends Component {
                                         </li>
                                         <li className={`${styles['contact_line']} ${styles['large']}`}>
                                             <div className={styles['contact_item']}>
-                                                <img src={facebook} className={styles['icon']} />
-                                                <div className={styles['text']}>Facebook</div>
+                                                <img src={facebook} className={styles['icon']} />                                                
+                                                <div className={styles['text']}>
+                                                    <a href={`https://web.facebook.com/BangkokAquatics/?_rdc=1&_rdr`} target="_blank">Facebook</a>
+                                                </div>
+                                               
                                             </div>
                                         </li>
                                         <li className={`${styles['contact_line']} ${styles['large']}`}>

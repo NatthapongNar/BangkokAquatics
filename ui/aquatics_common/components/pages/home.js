@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Form, Select } from 'antd'
 import _ from 'lodash'
 
 import Carousel from './component/carousel'
@@ -22,7 +23,9 @@ import assigment_img from '../../../../images/card_5.png'
 
 import coach_recom from '../../../../images/coach_recom.png'
 import swin_class from '../../../../images/swim_class.png'
-import schedule_class from '../../../../images/schedule_class.png'
+import schedule_class from '../../../../images/schedule_class1.png'
+
+const Option = Select.Option
 
 class Home extends Component {
 
@@ -30,6 +33,7 @@ class Home extends Component {
         super(props, context)
 
         this.state = {
+            scheduleIndex: '1',
             register: {
                 isOpen: false
             }
@@ -59,32 +63,47 @@ class Home extends Component {
     }
 
     render() {
+        const { masters, form } = this.props
+        const { getFieldDecorator } = form
+        
+        let master_schools = (masters.schools && masters.schools.data && masters.schools.data.length > 0) ? masters.schools.data : []
+       
         return (
             <div className={styles['aquatic_content']}>
                 
-                <Carousel 
-                    handleRegisterOpen={this.handleRegisterOpen}
-                />
+                <Carousel handleRegisterOpen={this.handleRegisterOpen} />
 
-                <Register 
-                    data={this.state.register}
-                    handleClose={this.handleRegisterClose}
-                />
+                {
+                    (this.state.register.isOpen) &&
+                    (
+                        <Register 
+                            masters={masters}
+                            data={this.state.register}
+                            handleClose={this.handleRegisterClose}
+                        />
+                    )
+                }
 
                 <article className={styles['contact_container']}>
                     <h6 className={styles['title']}>Any questions? We’ll get back to you ASAP</h6>
                     <div className={styles['contact_channel']}>
                         <div className={styles['contact_item']}>
-                            <img src={phone} className={styles['icon']} /> 
-                            <span className={styles['text']}>095 527 0999</span>
+                            <a href="tel:0955270999">
+                                <img src={phone} className={styles['icon']} /> 
+                                <span className={styles['text']}>095 527 0999</span>
+                            </a>
                         </div>
                         <div className={styles['contact_item']}>
-                            <img src={mail} className={styles['icon']} /> 
-                            <span className={styles['text']}>mijitra@gmail.com</span>
+                            <a href="mailto:aquatics-care@bangkok-aquatics.com">
+                                <img src={mail} className={styles['icon']} /> 
+                                <span className={styles['text']}>aquatics-care@bangkok-aquatics.com</span>
+                            </a>
                         </div>
                         <div className={styles['contact_item']}>
-                            <img src={line} className={styles['icon']} /> 
-                            <span className={styles['text']}>bangkok-aquatics</span>
+                            <a href="http://line.me/ti/p/~bangkok-aquatics">
+                                <img src={line} className={styles['icon']} /> 
+                                <span className={styles['text']}>bangkok-aquatics</span>
+                            </a>
                         </div>
                     </div>
                 </article>
@@ -247,18 +266,30 @@ class Home extends Component {
 
                 <article className={styles['schedule_container']}>
                     <div className="container">
-                        <div className="row">
+                        <div className="row" style={{ width: '400px', marginBottom: '5px' }}>
                             <div className="col-lg-12">
                                 <h2 className={styles['header']}>Our Class Schedules</h2>
                             </div>
                             <div className="col-lg-12">
-                                <select className={styles['select_list']}>
-                                    <option value="">Regents International School</option>
-                                    <option value="1">School 1</option>
-                                    <option value="2">School 2</option>
-                                    <option value="3">School 3</option>
-                                    <option value="4">School 4</option>
-                                </select>
+                                {
+                                    getFieldDecorator('Schedules', { initialValue: `${this.state.scheduleIndex}` })
+                                    (
+                                        <Select className={styles['f0_9']} style={{ width: '250px' }}>
+                                            {
+                                                _.map(master_schools, (data, i) => {
+                                                    return (
+                                                        <Option 
+                                                            key={`SHD${i+1}`} 
+                                                            value={`${data.School_ID}`}
+                                                        >
+                                                            {data.School_Name}
+                                                        </Option>
+                                                    )
+                                                })
+                                            }
+                                        </Select>
+                                    )
+                                }
                             </div>
                         </div>
                         <section className={styles['schedule_class']} data-aos="zoom-in" data-aos-delay="300" >
@@ -429,4 +460,4 @@ class Home extends Component {
 
 }
 
-export default Home
+export default Form.create()(Home)

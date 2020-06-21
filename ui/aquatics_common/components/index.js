@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 import { BackTop } from 'antd'
 import styles from './styles/style.scss'
 
@@ -47,6 +48,8 @@ class AquaticsTemplate extends Component {
     }
 
     handlePageContentRender = (page) => {
+        const { masters } = this.props
+        
         switch(page) {
             case 'Classes':
                 return (<ClassRoom />)
@@ -55,10 +58,14 @@ class AquaticsTemplate extends Component {
             case 'Our Coaches':
                 return (<OurCoaches />)
             default:
-                return (<Home />)
+                return (<Home masters={masters} />)
         }
     }
 
 }
 
-export default withRouter(AquaticsTemplate)
+const AquaticsTemplateRouter =  withRouter(AquaticsTemplate)
+export default connect(
+    (state) => ({}),
+    {}
+)(AquaticsTemplateRouter)

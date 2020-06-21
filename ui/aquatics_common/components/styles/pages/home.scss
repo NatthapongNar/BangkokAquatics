@@ -345,7 +345,7 @@
 
             .list_label {
                 font-family: 'Montserrat';
-                font-weight: bold;
+                font-weight: bolder;
                 text-align: right;
                 border: 0 !important;
                 color: #121212;
@@ -434,6 +434,7 @@
 .learn_more {
     padding: 20px 15px 0 0;
     text-align: right;
+    display: none;
 }
 
 .contact_container {
@@ -460,6 +461,10 @@
             color: #FFF;
             text-align: center;
             padding: 7px 0px;
+
+            a {
+                color: #FFF;
+            }
 
             .icon {
                 height: 20px;
