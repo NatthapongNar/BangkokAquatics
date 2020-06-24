@@ -88,9 +88,9 @@ class OurCoaches extends Component {
                                 </div>
                                 <div className="col-lg-7 col-md-6" data-aos="fade-right">
                                     <section>
-                                        <h2 className={`${styles['title_name']} ${styles['bold']}`}>Meet Jonathan</h2>
+                                        <h2 className={`${styles['title_name']} ${styles['bold']}`}>Meet Jonathon</h2>
                                         <div className={styles['symblo']}>“</div>
-                                        <p className={styles['text']}>My name is <b>Jonathan</b> and I have been teaching swimming for over <b>21 years.</b></p>
+                                        <p className={styles['text']}>My name is <b>Jonathon</b> and I have been teaching swimming for over <b>21 years.</b></p>
                                         <p className={`${styles['text']} ${styles['mb0']}`}>Some of my accomplishments include:</p>
                                         <ul className={`${styles['pl20']}`}>
                                             <li className={`${styles['text']}`}>Fitness First Swim School Manager in St.Leonards Sydney</li>

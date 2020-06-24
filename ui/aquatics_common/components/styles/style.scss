@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Baloo");
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
 /* Common */
 @import './common/common.scss';
 @import './common/media-queries.scss';
@@ -53,5 +57,9 @@
     .f1_0 { font-size: 1em; }
     .f0_9 { font-size: 0.9em; }
     .f0_8 { font-size: 0.8em; }
+
 }
 
+div[class^="ant-notification"] {
+    z-index: 100001;
+}

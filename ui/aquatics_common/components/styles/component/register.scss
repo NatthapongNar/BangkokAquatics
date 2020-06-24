@@ -13,6 +13,13 @@
             }
         }
 
+        .form_item2 {
+            margin: 0 !important;
+            div[class$="ant-form-item-label"] {
+                line-height: 10px !important;
+            }
+        }
+
         .form_label {
             font-size: 13px;
             font-weight: 600;

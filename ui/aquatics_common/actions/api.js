@@ -76,6 +76,7 @@ export const createLeadCustomer = (params) => ((dispatch) => {
     formData.append('school_id', params.school_id)
     formData.append('classes_id', params.classes_id)
     formData.append('note', params.note)
+    formData.append('is_agreement', params.is_agreement)
     formData.append('is_received_off', params.is_received_off)
 
     dispatch({
