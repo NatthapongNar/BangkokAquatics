@@ -24,7 +24,7 @@ import {
 
 import config from '../config/'
 
-export const getMasterSchools = (param) => ((dispatch) => {
+export const getMasterSchools = () => ((dispatch) => {
     dispatch({
         [RSAA]: {
             endpoint: `${GET_MASTER_SCHOOL_URL}`,
@@ -66,25 +66,25 @@ export const getMasterClasses = () => ((dispatch) => {
 
 export const createLeadCustomer = (params) => ((dispatch) => {
     
-    let formData = new FormData()
-    formData.append('parent_firstname', params.parent_firstname)
-    formData.append('parent_lastname', params.parent_lastname)
-    formData.append('mobile', params.mobile)
-    formData.append('email', params.email)
-    formData.append('child_firstname', params.child_firstname)
-    formData.append('child_lastname', params.child_lastname)
-    formData.append('school_id', params.school_id)
-    formData.append('classes_id', params.classes_id)
-    formData.append('note', params.note)
-    formData.append('is_agreement', params.is_agreement)
-    formData.append('is_received_off', params.is_received_off)
+    // let formData = new FormData()
+    // formData.append('parent_firstname', params.parent_firstname)
+    // formData.append('parent_lastname', params.parent_lastname)
+    // formData.append('mobile', params.mobile)
+    // formData.append('email', params.email)
+    // formData.append('child_firstname', params.child_firstname)
+    // formData.append('child_lastname', params.child_lastname)
+    // formData.append('school_id', params.school_id)
+    // formData.append('classes_id', params.classes_id)
+    // formData.append('note', params.note)
+    // formData.append('is_agreement', params.is_agreement)
+    // formData.append('is_received_off', params.is_received_off)
 
     dispatch({
         [RSAA]: {
             endpoint: `${CREATE_LEAD_CUSTOMER_URL}`,
-            // headers: config.form_header,
+            headers: config.json_header,
             method: 'POST',
-            body: formData,
+            body: JSON.stringify(params),
             types: [
                 CREATE_LEAD_CUSTOMER_REQUEST,
                 {

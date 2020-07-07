@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import ReCAPTCHA from "react-google-recaptcha"
-import { Row, Col, Form, Modal, Input, Select, Button, Checkbox, notification } from 'antd'
+import { Row, Col, Form, Modal, Input, Select, Button, Checkbox, notification, Icon } from 'antd'
 import { site_key } from '../../../config'
 import _ from 'lodash'
 
@@ -39,6 +39,18 @@ class Register extends Component {
             if(this.state.pending_created) {
                 if(props.is_created) {
                     props.handleClose()
+                    confirm({
+                        className: styles['register_success_alert'],
+                        title: (<Icon type="check-circle" theme="filled" />),
+                        content: (
+                            <div className={styles['content']}>
+                                Thanks for your information,<br/>we will get back to you shortly.
+                                <Button className={styles['done']} onClick={() => { Modal.destroyAll() }}>Done</Button>
+                            </div>
+                        ),
+                        icon: false
+                    })
+                    
                 }
                 this.setState({ pending_created: false })
             }
@@ -132,7 +144,7 @@ class Register extends Component {
                                     getFieldDecorator('School', {})
                                     (
                                         <Select>
-                                            <Option key={`SHL0`} value=""></Option>
+                                            <Option key={`SHL0`} value="">-- Please select --</Option>
                                             {
                                                 _.map(master_schools, (data, i) => {
                                                     return (<Option key={`SHL${i+1}`} value={data.School_ID}>{data.School_Name}</Option>)
@@ -149,7 +161,7 @@ class Register extends Component {
                                     getFieldDecorator('SessionClass', {})
                                     (
                                         <Select>
-                                            <Option key={`SCS0`} value=""></Option>
+                                            <Option key={`SCS0`} value="">-- Please select --</Option>
                                             {
                                                 _.map(session_class, (data, i) => {
                                                     return (<Option key={`SCS${i+1}`} value={data.Classes_ID}>{data.Classes_Name}</Option>)
@@ -230,7 +242,7 @@ class Register extends Component {
                     email: (fieldData.Email && !_.isEmpty(fieldData.Email)) ? fieldData.Email : null,
                     child_firstname:  (fieldData.ChildFirstName && !_.isEmpty(fieldData.ChildFirstName)) ? fieldData.ChildFirstName : null,
                     child_lastname:  (fieldData.ChildLastName && !_.isEmpty(fieldData.ChildLastName)) ? fieldData.ChildLastName : null,
-                    school_id: (fieldData.School) ? fieldData.School : null,
+                    school_id: (fieldData.School) ? `${fieldData.School}` : null,
                     classes_id: (fieldData.SessionClass) ? fieldData.SessionClass : null,
                     note: (fieldData.Comments && !_.isEmpty(fieldData.Comments)) ? fieldData.Comments : null,
                     is_agreement:  (fieldData.IsAgreement) ? 'Y' : 'N',

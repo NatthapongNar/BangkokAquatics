@@ -23,7 +23,9 @@ import assigment_img from '../../../../images/card_5.png'
 
 import coach_recom from '../../../../images/coach_recom.png'
 import swin_class from '../../../../images/swim_class.png'
-import schedule_class from '../../../../images/schedule_class1.png'
+// import schedule_class from '../../../../images/schedule_class1.png'
+import am from '../../../../images/am.png'
+import pm from '../../../../images/pm.png'
 
 const Option = Select.Option
 
@@ -86,6 +88,33 @@ class Home extends Component {
 
                 <article className={styles['contact_container']}>
                     <h6 className={styles['title']}>Any questions? We’ll get back to you ASAP</h6>
+                    <div className="row no-gutters">
+                        <div className={`col-lg-4 col-md-12 ${styles['contact_channel']}`}>
+                            <div className={styles['contact_item']}>
+                                <a href="tel:0955270999">
+                                    <img src={phone} className={styles['icon']} /> 
+                                    <span className={styles['text']}>095 527 0999</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div className={`col-lg-4 col-md-12 ${styles['contact_channel']}`}>
+                            <div className={styles['contact_item']}>
+                                <a href="mailto:aquatics-care@bangkok-aquatics.com">
+                                    <img src={mail} className={styles['icon']} /> 
+                                    <span className={styles['text']}>aquatics-care@bangkok-aquatics.com</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div className={`col-lg-4 col-md-12 ${styles['contact_channel']}`}>
+                            <div className={styles['contact_item']}>
+                                <a href="https://lin.ee/28tvoIY">
+                                    <img src={line} className={styles['icon']} /> 
+                                    <span className={styles['text']}>bangkok-aquatics</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {/*                     
                     <div className={styles['contact_channel']}>
                         <div className={styles['contact_item']}>
                             <a href="tel:0955270999">
@@ -106,6 +135,7 @@ class Home extends Component {
                             </a>
                         </div>
                     </div>
+                    */}
                 </article>
                             
                 <div className={styles['aquatic_wrapper']}>
@@ -264,17 +294,17 @@ class Home extends Component {
                     </div>
                 </div>
 
-                <article className={styles['schedule_container']}>
+                <article className={styles['schedule_container']} style={{ paddingBottom: '30px' }}>
                     <div className="container">
                         <div className="row" style={{ width: '400px', marginBottom: '5px' }}>
                             <div className="col-lg-12">
                                 <h2 className={styles['header']}>Our Class Schedules</h2>
                             </div>
-                            <div className="col-lg-12">
+                            <div className="col-lg-12" style={{ marginBottom: '20px' }}>
                                 {
                                     getFieldDecorator('Schedules', { initialValue: `${this.state.scheduleIndex}` })
                                     (
-                                        <Select className={styles['f0_9']} style={{ width: '250px' }}>
+                                        <Select className={styles['f0_9']} disabled={true} style={{ width: '250px' }}>
                                             {
                                                 _.map(master_schools, (data, i) => {
                                                     return (
@@ -292,9 +322,14 @@ class Home extends Component {
                                 }
                             </div>
                         </div>
-                        <section className={styles['schedule_class']} data-aos="zoom-in" data-aos-delay="300" >
-                            <img src={schedule_class} />
-                        </section>
+                        <div className="row">
+                            <div className="col-lg-12 col-md-12">
+                                <section className={styles['schedule_class']} data-aos="zoom-in" data-aos-delay="300">
+                                    <img src={am} className="img-fluid" data-aos="zoom-in" data-aos-delay="350" />
+                                    <img src={pm} className="img-fluid" data-aos="zoom-in" data-aos-delay="400" />
+                                </section>
+                            </div>
+                        </div>
                     </div>
                 </article>
 
@@ -302,153 +337,112 @@ class Home extends Component {
                     <div className="container">
                         <div className="row no-gutters">
                             <div className="col-lg-12">
-                                <h2 className={styles['header']} data-aos="fade-down" data-aos-delay="100">Price</h2>
+                                <h2 className={styles['header']}>Price</h2>
                             </div>
-                            <div className={`col-lg-3 ${styles['price_wrapper']}`} data-aos="zoom-in" data-aos-delay="100">
-                                <div className={styles['price_box']}>
-                                    <div className={`${styles['price_box_header']}`}>&nbsp;</div>
-                                    <div className={`${styles['price_box_content']} ${styles['unshadow']}`}>
-                                        <ul className="list-group list-group-flush">
-                                            <li className={`list-group-item ${styles['list_label']}`}>Fee per Session</li>
-                                            <li className={`list-group-item ${styles['list_label']}`}>Fee 10 Sessions (valid 8 weeks)</li>
-                                            <li className={`list-group-item ${styles['list_label']}`}>Fee 20 Sessions (Valid Term)</li>
-                                            <li className={`list-group-item ${styles['list_label']}`}>Available Sessions per week</li>
-                                            <li className={`list-group-item ${styles['list_label']}`}>Minimum</li> 
-                                        </ul>
-                                    </div>
+                            <div className="col-lg-12">
+                                <p className={styles['subtitle']}>Free Class Registration Details</p>
+                                <div className="table-responsive-lg">
+                                    <table className={`table table-borderless ${styles['table_wrapper']}`}>
+                                        <thead>
+                                            <tr data-aos="flip-down" data-aos-delay="100">
+                                                <th scope="col" style={{ width: '25%' }}></th>
+                                                <th scope="col" style={{ width: '25%' }}>Dates</th>
+                                                <th scope="col" style={{ width: '25%' }}>No. of Sessions</th>
+                                                <th scope="col" style={{ width: '25%' }}>Price (THB)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr className={styles['striped1']}  data-aos="flip-down" data-aos-delay="150">
+                                                <td scope="row">Weekday Classes</td>
+                                                <td className="text-center">July 1st - July 3rd</td>
+                                                <td className="text-center">Unlimited</td>
+                                                <td className="text-center">FREE</td>
+                                            </tr>
+                                            <tr className={styles['striped2']}  data-aos="flip-down" data-aos-delay="200">
+                                                <td scope="row">Saturday Classes</td>
+                                                <td className="text-center">July 4th</td>
+                                                <td className="text-center">1</td>
+                                                <td className="text-center">FREE</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-                            <div className="col-lg-9">
-                                <div className="row no-gutters">
-                                    <div className="col-lg-3">
-                                        <div className={styles['price_box']} data-aos="fade-down" data-aos-delay="100">
-                                            <div className={`${styles['price_box_header']} ${styles['h1']}`}>
-                                                <div className={styles['price_box_header_title']}>Learn to Swim</div>
-                                                <img src={card_h1} className={styles['price_box_header_brand']} />
-                                            </div>
-                                            <div className={styles['price_box_content']}>
-                                                <ul className="list-group list-group-flush">
-                                                    <li className={`list-group-item ${styles['list_custom']}`}>
-                                                        <span className={`${styles['label']} ${styles['text-vw-port']}`}>Fee per Session</span>
-                                                        <span className={styles['value']}>฿ 600</span>
-                                                    </li>
-                                                    <li className={`list-group-item ${styles['list_custom']}`}>
-                                                        <span className={`${styles['label']} ${styles['text-vw-port']}`}>Fee 10 Sessions (valid 8 weeks)</span>
-                                                        <span className={styles['value2']}>฿ 4,990</span>
-                                                    </li>
-                                                    <li className={`list-group-item ${styles['list_custom']}`}>
-                                                        <span className={`${styles['label']} ${styles['text-vw-port']}`}>Fee 20 Sessions (Valid Term)</span>
-                                                        <span className={styles['value2']}>฿ 8,800</span>
-                                                    </li>
-                                                    <li className={`list-group-item ${styles['list_custom']}`}>
-                                                        <span className={`${styles['label']} ${styles['text-vw-port']}`}>Available Sessions per week</span>
-                                                        <span className={styles['value2']}>6</span>
-                                                    </li>
-                                                    <li className={`list-group-item ${styles['list_custom']}`}>
-                                                        <span className={`${styles['label']} ${styles['text-vw-port']}`}>Minimum</span>
-                                                        <span className={styles['value2']}>-</span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-3">
-                                        <div className={styles['price_box']} data-aos="fade-up" data-aos-delay="100">
-                                            <div className={`${styles['price_box_header']} ${styles['h2']}`}>
-                                                <div className={styles['price_box_header_title']}>Learn to Swim</div>
-                                                <img src={card_h2} className={styles['price_box_header_brand']} />
-                                            </div>
-                                            <div className={styles['price_box_content']}>
-                                                <ul className="list-group list-group-flush">
-                                                    <li className={`list-group-item ${styles['list_custom']}`}>
-                                                        <span className={`${styles['label']} ${styles['text-vw-port']}`}>Fee per Session</span>
-                                                        <span className={styles['value']}>฿ 600</span>
-                                                    </li>
-                                                    <li className={`list-group-item ${styles['list_custom']}`}>
-                                                        <span className={`${styles['label']} ${styles['text-vw-port']}`}>Fee 10 Sessions (valid 8 weeks)</span>
-                                                        <span className={styles['value2']}>฿ 4,990</span>
-                                                    </li>
-                                                    <li className={`list-group-item ${styles['list_custom']}`}>
-                                                        <span className={`${styles['label']} ${styles['text-vw-port']}`}>Fee 20 Sessions (Valid Term)</span>
-                                                        <span className={styles['value2']}>฿ 8,800</span>
-                                                    </li>
-                                                    <li className={`list-group-item ${styles['list_custom']}`}>
-                                                        <span className={`${styles['label']} ${styles['text-vw-port']}`}>Available Sessions per week</span>
-                                                        <span className={styles['value2']}>6</span>
-                                                    </li>
-                                                    <li className={`list-group-item ${styles['list_custom']}`}>
-                                                        <span className={`${styles['label']} ${styles['text-vw-port']}`}>Minimum</span>
-                                                        <span className={styles['value2']}>-</span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-3">
-                                        <div className={styles['price_box']} data-aos="fade-down" data-aos-delay="100">
-                                            <div className={`${styles['price_box_header']} ${styles['h3']}`}>
-                                                <div className={styles['price_box_header_title']}>Learn to Swim</div>
-                                                <img src={card_h3} className={styles['price_box_header_brand']} />
-                                            </div>
-                                            <div className={styles['price_box_content']}>
-                                                <ul className="list-group list-group-flush">
-                                                    <li className={`list-group-item ${styles['list_custom']}`}>
-                                                        <span className={`${styles['label']} ${styles['text-vw-port']}`}>Fee per Session</span>
-                                                        <span className={styles['value']}>฿ 600</span>
-                                                    </li>
-                                                    <li className={`list-group-item ${styles['list_custom']}`}>
-                                                        <span className={`${styles['label']} ${styles['text-vw-port']}`}>Fee 10 Sessions (valid 8 weeks)</span>
-                                                        <span className={styles['value2']}>฿ 4,990</span>
-                                                    </li>
-                                                    <li className={`list-group-item ${styles['list_custom']}`}>
-                                                        <span className={`${styles['label']} ${styles['text-vw-port']}`}>Fee 20 Sessions (Valid Term)</span>
-                                                        <span className={styles['value2']}>฿ 8,800</span>
-                                                    </li>
-                                                    <li className={`list-group-item ${styles['list_custom']}`}>
-                                                        <span className={`${styles['label']} ${styles['text-vw-port']}`}>Available Sessions per week</span>
-                                                        <span className={styles['value2']}>5</span>
-                                                    </li>
-                                                    <li className={`list-group-item ${styles['list_custom']}`}>
-                                                        <span className={`${styles['label']} ${styles['text-vw-port']}`}>Minimum</span>
-                                                        <span className={styles['value2']}>-</span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-3">
-                                        <div className={styles['price_box']} data-aos="fade-up" data-aos-delay="100">
-                                            <div className={`${styles['price_box_header']} ${styles['h4']}`}>
-                                                <div className={styles['price_box_header_title']}>Learn to Swim</div>
-                                                <img src={card_h4} className={styles['price_box_header_brand']} />
-                                            </div>
-                                            <div className={styles['price_box_content']}>
-                                                <ul className="list-group list-group-flush">
-                                                    <li className={`list-group-item ${styles['list_custom']}`}>
-                                                        <span className={`${styles['label']} ${styles['text-vw-port']}`}>Fee per Session</span>
-                                                        <span className={styles['value']}>฿ 600</span>
-                                                    </li>
-                                                    <li className={`list-group-item ${styles['list_custom']}`}>
-                                                        <span className={`${styles['label']} ${styles['text-vw-port']}`}>Fee 10 Sessions (valid 8 weeks)</span>
-                                                        <span className={styles['value2']}>฿ 4,990</span>
-                                                    </li>
-                                                    <li className={`list-group-item ${styles['list_custom']}`}>
-                                                        <span className={`${styles['label']} ${styles['text-vw-port']}`}>Fee 20 Sessions (Valid Term)</span>
-                                                        <span className={styles['value2']}>Term</span>
-                                                    </li>
-                                                    <li className={`list-group-item ${styles['list_custom']}`}>
-                                                        <span className={`${styles['label']} ${styles['text-vw-port']}`}>Available Sessions per week</span>
-                                                        <span className={styles['value2']}>5 per week</span>
-                                                    </li>
-                                                    <li className={`list-group-item ${styles['list_custom']}`}>
-                                                        <span className={`${styles['label']} ${styles['text-vw-port']}`}>Minimum</span>
-                                                        <span className={styles['value2']}>2-4 per week</span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
+                            <div className="col-lg-12">
+                                <p className={styles['subtitle']}>Class Pricing (Weekdays)</p>
+                                <div className="table-responsive-lg">
+                                    <table className={`table table-borderless ${styles['table_wrapper']}`}>
+                                        <thead>
+                                            <tr  data-aos="flip-down" data-aos-delay="100">
+                                                <th scope="col" style={{ width: '25%' }}></th>
+                                                <th scope="col" style={{ width: '25%' }}>Class Length</th>
+                                                <th scope="col" style={{ width: '25%' }}>No. of Sessions</th>
+                                                <th scope="col" style={{ width: '25%' }}>Price (THB)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr className={styles['striped1']}  data-aos="flip-down" data-aos-delay="150">
+                                                <td scope="row"></td>
+                                                <td className="text-center">1 week</td>
+                                                <td className="text-center">Unlimited</td>
+                                                <td className="text-center">3,500</td>
+                                            </tr>
+                                            <tr className={styles['striped2']}  data-aos="flip-down" data-aos-delay="200">
+                                                <td scope="row"></td>
+                                                <td className="text-center">2 week</td>
+                                                <td className="text-center">Unlimited</td>
+                                                <td className="text-center">6,500</td>
+                                            </tr>
+                                            <tr className={styles['striped1']} data-aos="flip-down" data-aos-delay="250">
+                                                <td scope="row"></td>
+                                                <td className="text-center">3 week</td>
+                                                <td className="text-center">Unlimited</td>
+                                                <td className="text-center">9,700</td>
+                                            </tr>
+                                            <tr className={styles['striped2']} data-aos="flip-down" data-aos-delay="300">
+                                                <td scope="row"></td>
+                                                <td className="text-center">4 week</td>
+                                                <td className="text-center">Unlimited</td>
+                                                <td className="text-center">12,000</td>
+                                            </tr>
+                                            <tr className={styles['striped1']} data-aos="flip-down" data-aos-delay="350">
+                                                <td scope="row"></td>
+                                                <td className="text-center">5 week</td>
+                                                <td className="text-center">Unlimited</td>
+                                                <td className="text-center">15,000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
+                            </div>
+                            <div className="col-lg-12">
+                                <p className={styles['subtitle']}>Class Pricing (Saturdays)</p>
+                                <div className="table-responsive-lg">
+                                    <table className={`table table-borderless ${styles['table_wrapper']}`}>
+                                        <thead>
+                                            <tr  data-aos="flip-down" data-aos-delay="100">
+                                                <th scope="col" style={{ width: '25%' }}></th>
+                                                <th scope="col" style={{ width: '25%' }}>Dates  </th>
+                                                <th scope="col" style={{ width: '25%' }}>No. of Sessions</th>
+                                                <th scope="col" style={{ width: '25%' }}>Price (THB)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr className={styles['striped1']}  data-aos="flip-down" data-aos-delay="150">
+                                                <td scope="row"></td>
+                                                <td className="text-center">July 11th, 18th, &amp; 25th</td>
+                                                <td className="text-center" rowSpan="2">5</td>
+                                                <td className="text-center" rowSpan="2">3,500</td>
+                                            </tr>
+                                            <tr className={styles['striped1']}  data-aos="flip-down" data-aos-delay="200">
+                                                <td scope="row"></td>
+                                                <td className="text-center">August 1st &amp; 8th</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <p className={styles['subfooter']}>* 8 Swimmers per 1 Coach ratio for Club Senior, Club Junior, Discovery *</p>
+                                <p className={styles['subfooter']}>* 4 Swimmers per 1 Coach ratio for Explore *</p>
                             </div>
                         </div>
                     </div>
