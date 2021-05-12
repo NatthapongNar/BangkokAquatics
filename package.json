@@ -28,7 +28,7 @@
 		"babel-runtime": "^6.23.0",
 		"bluebird": "^3.5.0",
 		"casual": "^1.5.14",
-		"chart.js": "^2.6.0",
+		"chart.js": "^2.9.4",
 		"css-loader": "^0.28.2",
 		"es6-promise": "^4.1.0",
 		"extract-text-webpack-plugin": "^2.1.0",
